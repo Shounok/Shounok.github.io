@@ -1,9 +1,8 @@
 # Site settings
-title: Dong Liang's CV 
-description: ddbullfrog's CV
+title: Shounok Rahman
+description: Shounok's CV
 favicon: /assets/img/avatar.JPG
-baseurl: https://ddbullfrog.github.io/resumecard
-url: https://ddbullfrog.github.io/resumecard
+url: https://Shounok.github.io/resumecard
 rss_url: /pages/atom.xml
 google_analytics: UA-63653234-1
 
@@ -14,14 +13,14 @@ exclude: [vendor]
 
 # Author settings
 author:
-  name: Dong Liang
-  title: Java Developer
-  address: Auckland, New Zealand
-  email: dongg.liang#gmail.com
-  link: http://ddbullfrog.com
+  name: Shounok Rahman
+  title: Web Developer
+  address: Dhaka, Bangladesh
+  email: shounok0207@gmail.com
+  link: http://shounok.github.io
   weibo:
-  github: ddbullfrog
-  linkedin: ddbullfrog
+  github: Shounok
+  linkedin: ShounokRahman
   twitter: ddbullfrog
   gavatar: /resumecard/assets/img/avatar.JPG
   stackoverflow:
