@@ -20,65 +20,51 @@ author:
   link: http://shounok.github.io
   weibo:
   github: Shounok
-  linkedin: ShounokRahman
-  twitter: ddbullfrog
+  linkedin: shounok-rahman-a2193763
+  twitter: shounokv
   gavatar: /resumecard/assets/img/avatar.JPG
   stackoverflow:
 #  stackoverflow: 4582127
   workHistory:
     - work1:
-      company: XXX Ltd
-      location: Auckland, New Zealand
-      title: Java Developer
-      started: 2014
-      duration: (2014 - Present)
-      description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
-    - work2:
-      company: XXX Ltd
-      location: Shanghai, China
-      title: Java Developer
-      started: 2012
-      duration: (2012 - 2014)
-      description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
-    - work3:
-      company: XXX Ltd
-      location: Shanghai, China
-      title: Java Developer
-      started: 2009
-      duration: (2009 - 2012)
-      description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
+      company: Xoss Technologies Ltd.
+      location: Dhaka, Bangladesh
+      title: Web Developer
+      started: 2018
+      duration: (2018 - Present)
+      description: I was coordinating between various projects running for the company. As a project coordinator, my responsibility was to develop Software Development plan, managing and scheduling different tasks. As a developer, I was in charge with managing server-side ends of different projects.
+    
   educationHistory:
     - education1:
-      organization: XXXXXX University
-      location: Shenyang, China
+      organization: Khulna University
+      location: Khulna, Bangladesh
       degree: Bachelor
-      major: Software Engineering
-      started: 2005
-      duration: (2005 - 2009)
-      description: I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description. I am not a description. I am not description.I am not description.
+      major: Computer Science and Engineering
+      started: 2010
+      duration: (2010 - 2017)
   languages:
     - language1:
-      name: Chinese
+      name: Bangla
       proficiency: Native
     - language2:
       name: English
       proficiency: Professional
     - language3:
-      name: Japanese
+      name: Hindi
       proficiency: Limit
   programmingSkills:
     - skill1:
-      name: HTML
-      percentage: 100%
+      name: PHP
+      percentage: 85%
     - skill2:
-      name: Bootstrap
-      percentage: 90%
+      name: Python
+      percentage: 30%
     - skill3:
       name: JavaScript
-      percentage: 70%
+      percentage: 80%
     - skill4:
-      name: AngularJS
+      name: HTML & CSS
       percentage: 70%
     - skill5:
-      name: Java/Java EE
-      percentage: 90%
+      name: Java/Android
+      percentage: 60%
