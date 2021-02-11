@@ -2,7 +2,7 @@
 title: Shounok Rahman
 description: Shounok's CV
 favicon: /assets/img/avatar.JPG
-url: https://Shounok.github.io/resumecard
+url: https://Shounok.github.io/
 rss_url: /pages/atom.xml
 google_analytics: UA-63653234-1
 show_downloads: true
@@ -59,7 +59,7 @@ author:
       proficiency: Professional
     - language3:
       name: Hindi
-      proficiency: Limit
+      proficiency: Limited
   programmingSkills:
     - skill1:
       name: PHP
