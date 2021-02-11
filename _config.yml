@@ -50,6 +50,13 @@ author:
       major: Computer Science and Engineering
       started: 2010
       duration: (2010 - 2017)
+    - education2:
+      organization: American International University - Bangladesh
+      location: Dhaka, Bangladesh
+      degree: Master's
+      major: Computer Science
+      started: 2020
+      duration: (2020 - Ongoing)
   languages:
     - language1:
       name: Bangla
@@ -65,11 +72,11 @@ author:
       name: PHP
       percentage: 85%
     - skill2:
-      name: Python
-      percentage: 30%
-    - skill3:
       name: JavaScript
       percentage: 80%
+    - skill3:
+      name: Python
+      percentage: 40%      
     - skill4:
       name: HTML & CSS
       percentage: 70%
