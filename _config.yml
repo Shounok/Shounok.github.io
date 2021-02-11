@@ -5,6 +5,7 @@ favicon: /assets/img/avatar.JPG
 url: https://Shounok.github.io/resumecard
 rss_url: /pages/atom.xml
 google_analytics: UA-63653234-1
+show_downloads: true
 
 # Build settings
 markdown: kramdown
@@ -30,7 +31,7 @@ author:
       company: Trenza Softwares
       location: Dhaka, Bangladesh
       title: Web Developer
-      started: 2018
+      started: 2020
       duration: (December, 2020 - Present)
       description: I was coordinating between various projects running for the company. As a project coordinator, my responsibility was to develop Software Development plan, managing and scheduling different tasks. As a developer, I was in charge with managing server-side ends of different projects.
     - work2:
