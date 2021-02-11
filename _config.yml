@@ -27,13 +27,20 @@ author:
 #  stackoverflow: 4582127
   workHistory:
     - work1:
+      company: Trenza Softwares
+      location: Dhaka, Bangladesh
+      title: Web Developer
+      started: 2018
+      duration: (December, 2020 - Present)
+      description: I was coordinating between various projects running for the company. As a project coordinator, my responsibility was to develop Software Development plan, managing and scheduling different tasks. As a developer, I was in charge with managing server-side ends of different projects.
+    - work2:
       company: Xoss Technologies Ltd.
       location: Dhaka, Bangladesh
       title: Web Developer
       started: 2018
-      duration: (2018 - Present)
+      duration: (October, 2018 - May, 2020)
       description: I was coordinating between various projects running for the company. As a project coordinator, my responsibility was to develop Software Development plan, managing and scheduling different tasks. As a developer, I was in charge with managing server-side ends of different projects.
-    
+
   educationHistory:
     - education1:
       organization: Khulna University
