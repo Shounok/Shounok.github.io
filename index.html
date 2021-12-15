@@ -1,301 +1,362 @@
 ---
 layout: default
 ---
+
 <div class="container-fluid">
-    <div class="row-fluid">
-        <div class="col-md-8">
-            {% if site.author.workHistory %}
-                <h3 class="title with-icon"><span class="glyphicon glyphicon-plane cat-title"></span>Work History</h3>
-                <ul class="timeline">
-                    {% for work in site.author.workHistory %}
-                        <li class="timeline-inverted">
-                            {% if work.started %}
-                                <div class="timeline-badge info">{{ work.started }}</div>
-                            {% endif %}
-                            <div class="timeline-panel grid-block">
-                                <div class="timeline-heading">
-                                    {% if work.company %}
-                                        <h4 class="timeline-title">{{ work.company }} </h4>
-                                    {% endif %}
-                                    <p>
-                                        <small class="text-muted">
-                                            {% if work.title %}
-                                                {{ work.title }}
-                                            {% endif %}
-                                        </small>
-                                    </p>
-                                    <p>
-                                        <small class="text-muted">
-                                            {% if work.duration %}
-                                                <i class="fa fa-calendar"></i> {{ work.duration }} |
-                                            {% endif %}
-                                            {% if work.location %}
-                                                <i class="fa fa-map-marker"></i>  {{ work.location }}
-                                            {% endif %}
-                                        </small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body">
-                                    {% if work.description %}
-                                        <p>{{ work.description }}</p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-            {% if site.author.educationHistory %}
-                <h3 class="title with-icon"><span class="fa fa-book cat-title"></span>Education History</h3>
-                <ul class="timeline">
-                    {% for education in site.author.educationHistory %}
-                        <li class="timeline-inverted">
-                            {% if education.started %}
-                                <div class="timeline-badge info">{{ education.started }}</div>
-                            {% endif %}
-                            <div class="timeline-panel grid-block">
-                                <div class="timeline-heading">
-                                    {% if education.organization %}
-                                        <h4 class="timeline-title">{{ education.organization }}</h4>
-                                    {% endif %}
-                                    <p>
-                                        <small class="text-muted">
-                                            {% if education.degree %}
-                                                {{ education.degree }}
-                                            {% endif %}
-                                            {% if education.major %}
-                                                , {{ education.major }}
-                                            {% endif %}
-                                        </small>
-                                    </p>
-                                    <p>
-                                        <small class="text-muted">
-                                            {% if education.duration %}
-                                                <i class="fa fa-calendar"></i> {{ education.duration }} |
-                                            {% endif %}
-                                            {% if education.location %}
-                                                <i class="fa fa-map-marker"></i>  {{ education.location }}
-                                            {% endif %}
-                                        </small>
-                                    </p>
-                                </div>
-                                <div class="timeline-body">
-                                    {% if education.description %}
-                                        <p>{{ education.description }}</p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        </div>
-        <div class="col-md-4">
-            {% if site.author.stackoverflow or site.author.programmingSkills %}
-                <h3 class="title with-icon"><span class="fa fa-code cat-title"></span> Programming Skills</h3>
-                {% if site.author.stackoverflow %}
-                <div class="grid-block">
-                  <p><a href="//stackoverflow.com/users/{{ site.author.stackoverflow }}"><img src="//stackoverflow.com/users/flair/{{ site.author.stackoverflow }}.png"></a></p>
-                  <ul class="list-unstyled list-stackoverflow" id="stackoverflow_questions_and_answers"></ul>
-                  <script type="text/javascript">
-                  $(function () {
-                    var api_url_user = "//api.stackexchange.com/2.2/users/{{ site.author.stackoverflow }}/answers?pagesize=5&order=desc&sort=votes&site=stackoverflow";
-                    var api_url_format_questions = "//api.stackexchange.com/2.2/questions/%question_ids%?site=stackoverflow";
-
-                    $.get(api_url_user, function (data_user) {
-                      if (!data_user) {
-                        return;
-                      }
-                      if (!data_user.items) {
-                        return;
-                      }
-                      if (!data_user.items.length) {
-                        return;
-                      }
-
-                      var question_ids = [];
-                      var complex_questions = {};
-                      $.each(data_user.items, function (index, item) {
-                        if (!item) {
-                          return;
-                        }
-                        if (!item.question_id) {
-                          return;
-                        }
-                        if (!item.answer_id) {
-                          return;
-                        }
-                        if (!item.score) {
-                          return;
-                        }
-
-                        complex_questions[item.question_id] = {
-                          "question_id": item.question_id,
-                          "answer_id": item.answer_id,
-                          "score": humanize_score(item.score),
-                          "is_accepted": item.is_accepted
-                        };
-                        question_ids.push(item.question_id);
-                      });
-
-                      var api_url_questions = api_url_format_questions.replace('%question_ids%', question_ids.join(';'));
-
-                      $.get(api_url_questions, function (data_questions) {
-                        if (!data_questions) {
-                          return;
-                        }
-                        if (!data_questions.items) {
-                          return;
-                        }
-                        if (!data_questions.items.length) {
-                          return;
-                        }
-
-                        $.each(data_questions.items, function (index, item) {
-                          if (!item) {
-                            return;
-                          }
-                          if (!item.question_id) {
-                            return;
-                          }
-                          var complex_question = complex_questions[item.question_id];
-                          if (!complex_question) {
-                            return;
-                          }
-
-                          complex_question.title = item.title;
-                          complex_question.link = item.link;
-                        });
-
-                        render_complex_questions(complex_questions);
-                      });
-                    });
-                  });
-                  function humanize_score(score) {
-                    if (!score) {
-                      return;
-                    }
-
-                    if (score / 1000 > 1) {
-                      return (score / 1000) + "k";
-                    } else {
-                      return score;
-                    }
-                  }
-                  function render_complex_questions(complex_questions) {
-                    if (!complex_questions) {
-                      return;
-                    }
-
-                    complex_questions = $.map(complex_questions, function (complex_question) {
-                      return [complex_question];
-                    });
-                    complex_questions.sort(function (a, b) {
-                      return b.score - a.score;
-                    });
-
-                    $stackoverflow_questions_and_answers = $('#stackoverflow_questions_and_answers');
-
-                    $.each(complex_questions, function (index, complex_question) {
-                      var link = complex_question.link + '#answer-' + complex_question.answer_id;
-                      var $li = $('<li />');
-                      $('<span />')
-                        .addClass('badge')
-                        .addClass(complex_question.is_accepted ? 'progress-bar-success' : '')
-                        .text(complex_question.score)
-                        .appendTo($li);
-                      $('<a />')
-                        .attr('href', link)
-                        .attr('target', '_blank')
-                        .text(complex_question.title)
-                        .appendTo($li);
-                      $li.appendTo($stackoverflow_questions_and_answers);
-                    });
-                  }
-                  </script>
-                </div>
-                {% endif %}
-                {% if site.author.programmingSkills %}
-                <div class="grid-block">
-                    <ul class="list-unstyled list-skills">
-                        {% for programmingSkill in site.author.programmingSkills %}
-                            <li>
-                                {% if programmingSkill.name %}
-                                    <span class="caption-skill">{{ programmingSkill.name }}</span>
-                                {% endif %}
-                                {% if programmingSkill.percentage %}
-                                    <div class="progress">
-                                        <div class="progress-bar" style="width: {{ programmingSkill.percentage }}">
-                                            <span>{{ programmingSkill.percentage }} </span>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-            {% endif %}
-            {% if site.author.languages %}
-                <div class="deviter"></div>
-                <h3 class="title with-icon"><span class="fa fa-globe cat-title"></span> Language Skills</h3>
-                <div class="grid-block">
-                    <ul class="list-unstyled list-strip">
-                        {% for language in site.author.languages %}
-                            {% if language.name %}
-                                {% if language.proficiency %}
-                                    <li>
-                                        <i class="fa fa-check"></i> <span class="badge badge-green badge-right-float">{{ language.proficiency }}</span>{{ language.name }}
-                                    </li>
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-            {% if site.author.bookShowcase %}
-            <div class="deviter"></div>
-            <h3 class="title with-icon"><span class="fa fa-book cat-title"></span> Book Showcase</h3>
-            <div class="bk-book book-1 bk-bookdefault">
-							<div class="bk-front">
-								<div class="bk-cover">
-									<h2>
-										<span>Anthony Burghiss</span>
-										<span>A Catwork Orange</span>
-									</h2>
-								</div>
-								<div class="bk-cover-back"></div>
-							</div>
-							<div class="bk-page">
-								<div class="bk-content bk-content-current">
-									<p>Red snapper Kafue pike fangtooth humums slipmouth, salmon cutlassfish; swallower European perch mola mola sunfish, threadfin bream. Billfish hog sucker trout-perch lenok orbicular velvetfish. Delta smelt striped bass, medusafish dragon goby starry flounder cuchia round whitefish northern anchovy spadefish merluccid hake cat shark Black pickerel. Pacific cod.</p>
-								</div>
-								<div class="bk-content">
-									<p>Whale catfish leatherjacket deep sea anglerfish grenadier sawfish pompano dolphinfish carp large-eye bream, squeaker amago. Sandroller; rough scad, tiger shovelnose catfish snubnose parasitic eel? Black bass soldierfish duckbill--Rattail Atlantic saury Blind shark California halibut; false trevally warty angler!</p>
-								</div>
-								<div class="bk-content">
-									<p>Trahira giant wels cutlassfish snapper koi blackchin mummichog mustard eel rock bass whiff murray cod. Bigmouth buffalo ling cod giant wels, sauger pink salmon. Clingfish luderick treefish flatfish Cherubfish oldwife Indian mul gizzard shad hagfish zebra danio. Butterfly ray lizardfish ponyfish muskellunge Long-finned sand diver mullet swordfish limia ghost carp filefish.</p>
-								</div>
-							</div>
-							<div class="bk-back">
-								<p>In this nightmare vision of cats in revolt, fifteen-year-old Alex and his friends set out on a diabolical orgy of robbery, rape, torture and murder. Alex is jailed for his teenage delinquency and the State tries to reform him - but at what cost?</p>
-							</div>
-							<div class="bk-right"></div>
-							<div class="bk-left">
-								<h2>
-									<span>Anthony Burghiss</span>
-									<span>A Catwork Orange</span>
-								</h2>
-							</div>
-							<div class="bk-top"></div>
-							<div class="bk-bottom"></div>
-						</div>
-            {% endif %}
-            <div class="deviter"></div>
-            <h3 class="title with-icon"><span class="fa fa-location-arrow cat-title"></span> Location</h3>
-            <div class="grid-block">
-                <iframe src="https://www.google.com/maps/embed/v1/place?q={{ site.author.address }}&key=AIzaSyClEWLh20lxrQBFR7omuuVESviszPxONyk" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
+  <div class="row-fluid">
+    <div class="col-md-8">
+      {% if site.author.workHistory %}
+      <h3 class="title with-icon">
+        <span class="glyphicon glyphicon-plane cat-title"></span>Work History
+      </h3>
+      <ul class="timeline">
+        {% for work in site.author.workHistory %}
+        <li class="timeline-inverted">
+          {% if work.started %}
+          <div class="timeline-badge info">{{ work.started }}</div>
+          {% endif %}
+          <div class="timeline-panel grid-block">
+            <div class="timeline-heading">
+              {% if work.company %}
+              <h4 class="timeline-title">{{ work.company }}</h4>
+              {% endif %}
+              <p>
+                <small class="text-muted">
+                  {% if work.title %} {{ work.title }} {% endif %}
+                </small>
+              </p>
+              <p>
+                <small class="text-muted">
+                  {% if work.duration %}
+                  <i class="fa fa-calendar"></i> {{ work.duration }} | {% endif
+                  %} {% if work.location %} <i class="fa fa-map-marker"></i> {{
+                  work.location }} {% endif %}
+                </small>
+              </p>
             </div>
-        </div>
+            <div class="timeline-body">
+              {% if work.description %}
+              <p>{{ work.description }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% if site.author.educationHistory %}
+      <h3 class="title with-icon">
+        <span class="fa fa-book cat-title"></span>Education History
+      </h3>
+      <ul class="timeline">
+        {% for education in site.author.educationHistory %}
+        <li class="timeline-inverted">
+          {% if education.started %}
+          <div class="timeline-badge info">{{ education.started }}</div>
+          {% endif %}
+          <div class="timeline-panel grid-block">
+            <div class="timeline-heading">
+              {% if education.organization %}
+              <h4 class="timeline-title">{{ education.organization }}</h4>
+              {% endif %}
+              <p>
+                <small class="text-muted">
+                  {% if education.degree %} {{ education.degree }} {% endif %}
+                  {% if education.major %} , {{ education.major }} {% endif %}
+                </small>
+              </p>
+              <p>
+                <small class="text-muted">
+                  {% if education.duration %}
+                  <i class="fa fa-calendar"></i> {{ education.duration }} | {%
+                  endif %} {% if education.location %}
+                  <i class="fa fa-map-marker"></i> {{ education.location }} {%
+                  endif %}
+                </small>
+              </p>
+            </div>
+            <div class="timeline-body">
+              {% if education.description %}
+              <p>{{ education.description }}</p>
+              {% endif %}
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
     </div>
+    <div class="col-md-4">
+      {% if site.author.stackoverflow or site.author.programmingSkills %}
+      <h3 class="title with-icon">
+        <span class="fa fa-code cat-title"></span> Programming Skills
+      </h3>
+      {% if site.author.stackoverflow %}
+      <div class="grid-block">
+        <p>
+          <a href="//stackoverflow.com/users/{{ site.author.stackoverflow }}"
+            ><img
+              src="//stackoverflow.com/users/flair/{{ site.author.stackoverflow }}.png"
+          /></a>
+        </p>
+        <ul
+          class="list-unstyled list-stackoverflow"
+          id="stackoverflow_questions_and_answers"
+        ></ul>
+        <script type="text/javascript">
+          $(function () {
+            var api_url_user =
+              "//api.stackexchange.com/2.2/users/{{ site.author.stackoverflow }}/answers?pagesize=5&order=desc&sort=votes&site=stackoverflow";
+            var api_url_format_questions =
+              "//api.stackexchange.com/2.2/questions/%question_ids%?site=stackoverflow";
+
+            $.get(api_url_user, function (data_user) {
+              if (!data_user) {
+                return;
+              }
+              if (!data_user.items) {
+                return;
+              }
+              if (!data_user.items.length) {
+                return;
+              }
+
+              var question_ids = [];
+              var complex_questions = {};
+              $.each(data_user.items, function (index, item) {
+                if (!item) {
+                  return;
+                }
+                if (!item.question_id) {
+                  return;
+                }
+                if (!item.answer_id) {
+                  return;
+                }
+                if (!item.score) {
+                  return;
+                }
+
+                complex_questions[item.question_id] = {
+                  question_id: item.question_id,
+                  answer_id: item.answer_id,
+                  score: humanize_score(item.score),
+                  is_accepted: item.is_accepted,
+                };
+                question_ids.push(item.question_id);
+              });
+
+              var api_url_questions = api_url_format_questions.replace(
+                "%question_ids%",
+                question_ids.join(";")
+              );
+
+              $.get(api_url_questions, function (data_questions) {
+                if (!data_questions) {
+                  return;
+                }
+                if (!data_questions.items) {
+                  return;
+                }
+                if (!data_questions.items.length) {
+                  return;
+                }
+
+                $.each(data_questions.items, function (index, item) {
+                  if (!item) {
+                    return;
+                  }
+                  if (!item.question_id) {
+                    return;
+                  }
+                  var complex_question = complex_questions[item.question_id];
+                  if (!complex_question) {
+                    return;
+                  }
+
+                  complex_question.title = item.title;
+                  complex_question.link = item.link;
+                });
+
+                render_complex_questions(complex_questions);
+              });
+            });
+          });
+          function humanize_score(score) {
+            if (!score) {
+              return;
+            }
+
+            if (score / 1000 > 1) {
+              return score / 1000 + "k";
+            } else {
+              return score;
+            }
+          }
+          function render_complex_questions(complex_questions) {
+            if (!complex_questions) {
+              return;
+            }
+
+            complex_questions = $.map(
+              complex_questions,
+              function (complex_question) {
+                return [complex_question];
+              }
+            );
+            complex_questions.sort(function (a, b) {
+              return b.score - a.score;
+            });
+
+            $stackoverflow_questions_and_answers = $(
+              "#stackoverflow_questions_and_answers"
+            );
+
+            $.each(complex_questions, function (index, complex_question) {
+              var link =
+                complex_question.link + "#answer-" + complex_question.answer_id;
+              var $li = $("<li />");
+              $("<span />")
+                .addClass("badge")
+                .addClass(
+                  complex_question.is_accepted ? "progress-bar-success" : ""
+                )
+                .text(complex_question.score)
+                .appendTo($li);
+              $("<a />")
+                .attr("href", link)
+                .attr("target", "_blank")
+                .text(complex_question.title)
+                .appendTo($li);
+              $li.appendTo($stackoverflow_questions_and_answers);
+            });
+          }
+        </script>
+      </div>
+      {% endif %} {% if site.author.programmingSkills %}
+      <div class="grid-block">
+        <ul class="list-unstyled list-skills">
+          {% for programmingSkill in site.author.programmingSkills %}
+          <li>
+            {% if programmingSkill.name %}
+            <span class="caption-skill">{{ programmingSkill.name }}</span>
+            {% endif %} {% if programmingSkill.percentage %}
+            <div class="progress">
+              <div
+                class="progress-bar"
+                style="width: {{ programmingSkill.percentage }}"
+              >
+                <span>{{ programmingSkill.percentage }} </span>
+              </div>
+            </div>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %} {% endif %} {% if site.author.languages %}
+      <div class="deviter"></div>
+      <h3 class="title with-icon">
+        <span class="fa fa-globe cat-title"></span> Language Skills
+      </h3>
+      <div class="grid-block">
+        <ul class="list-unstyled list-strip">
+          {% for language in site.author.languages %} {% if language.name %} {%
+          if language.proficiency %}
+          <li>
+            <i class="fa fa-check"></i>
+            <span class="badge badge-green badge-right-float"
+              >{{ language.proficiency }}</span
+            >{{ language.name }}
+          </li>
+          {% endif %} {% endif %} {% endfor %}
+        </ul>
+      </div>
+      {% endif %} {% if site.author.bookShowcase %}
+      <div class="deviter"></div>
+      <h3 class="title with-icon">
+        <span class="fa fa-book cat-title"></span> Book Showcase
+      </h3>
+      <ul id="bk-list" class="bk-list clearfix">
+        <li>
+          <div class="bk-book book-1 bk-bookdefault">
+            <div class="bk-front">
+              <div class="bk-cover">
+                <h2>
+                  <span>Anthony Burghiss</span>
+                  <span>A Catwork Orange</span>
+                </h2>
+              </div>
+              <div class="bk-cover-back"></div>
+            </div>
+            <div class="bk-page">
+              <div class="bk-content bk-content-current">
+                <p>
+                  Red snapper Kafue pike fangtooth humums slipmouth, salmon
+                  cutlassfish; swallower European perch mola mola sunfish,
+                  threadfin bream. Billfish hog sucker trout-perch lenok
+                  orbicular velvetfish. Delta smelt striped bass, medusafish
+                  dragon goby starry flounder cuchia round whitefish northern
+                  anchovy spadefish merluccid hake cat shark Black pickerel.
+                  Pacific cod.
+                </p>
+              </div>
+              <div class="bk-content">
+                <p>
+                  Whale catfish leatherjacket deep sea anglerfish grenadier
+                  sawfish pompano dolphinfish carp large-eye bream, squeaker
+                  amago. Sandroller; rough scad, tiger shovelnose catfish
+                  snubnose parasitic eel? Black bass soldierfish
+                  duckbill--Rattail Atlantic saury Blind shark California
+                  halibut; false trevally warty angler!
+                </p>
+              </div>
+              <div class="bk-content">
+                <p>
+                  Trahira giant wels cutlassfish snapper koi blackchin mummichog
+                  mustard eel rock bass whiff murray cod. Bigmouth buffalo ling
+                  cod giant wels, sauger pink salmon. Clingfish luderick
+                  treefish flatfish Cherubfish oldwife Indian mul gizzard shad
+                  hagfish zebra danio. Butterfly ray lizardfish ponyfish
+                  muskellunge Long-finned sand diver mullet swordfish limia
+                  ghost carp filefish.
+                </p>
+              </div>
+            </div>
+            <div class="bk-back">
+              <p>
+                In this nightmare vision of cats in revolt, fifteen-year-old
+                Alex and his friends set out on a diabolical orgy of robbery,
+                rape, torture and murder. Alex is jailed for his teenage
+                delinquency and the State tries to reform him - but at what
+                cost?
+              </p>
+            </div>
+            <div class="bk-right"></div>
+            <div class="bk-left">
+              <h2>
+                <span>Anthony Burghiss</span>
+                <span>A Catwork Orange</span>
+              </h2>
+            </div>
+            <div class="bk-top"></div>
+            <div class="bk-bottom"></div>
+          </div>
+        </li>
+      </ul>
+      {% endif %}
+      <div class="deviter"></div>
+      <h3 class="title with-icon">
+        <span class="fa fa-location-arrow cat-title"></span> Location
+      </h3>
+      <div class="grid-block">
+        <iframe
+          src="https://www.google.com/maps/embed/v1/place?q={{ site.author.address }}&key=AIzaSyClEWLh20lxrQBFR7omuuVESviszPxONyk"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          style="border: 0"
+        ></iframe>
+      </div>
+    </div>
+  </div>
 </div>
