@@ -299,6 +299,7 @@ hr {
 }
 
 /* skills css */
+/*
 .list-skills li .progress {
     height: 10px;
     box-shadow: none;
@@ -339,6 +340,7 @@ hr {
 .list-skills li:nth-child(even) .progress-bar {
     background: #4B6F78;
 }
+*/
 
 .list-strip li {
     color: white;
