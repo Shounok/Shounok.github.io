@@ -10,6 +10,7 @@ a {
 }
 
 .btn-dark {
+    float: right;
     color: #ffffff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #555555;
@@ -511,4 +512,35 @@ hr {
 }
 .ribbon.white a{
   border: 2px dotted rgba(100,100,100,0.2);
+}
+
+.curl-top-right {
+    display: inline-block;
+    position: relative;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.curl-top-right:before {
+    pointer-events: none;
+    position: absolute;
+    content:'';
+    height: 0;
+    width: 0;
+    top: 0;
+    right: 0;
+    background: white;
+    /* IE9 */
+    background: -webkit-linear-gradient(225deg, white 45%, #aaaaaa 50%, #cccccc 56%, white 80%);
+    background: linear-gradient(225deg, white 45%, #aaaaaa 50%, #cccccc 56%, white 80%);
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.4);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: width, height;
+    transition-property: width, height;
+}
+.curl-top-right:hover:before {
+    width: 25px;
+    height: 25px;
 }
