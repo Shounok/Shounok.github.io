@@ -367,11 +367,18 @@
 
 .book-1 .bk-cover h2 span:first-child,
 .book-1 .bk-left h2 span:first-child {
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-weight: 400;
 	font-size: 13px;
 	padding-right: 20px;
 	color: #000;
+}
+
+.book-1 .bk-left h2 span:first-child {
+	font-size: 23px !important;
+	font-family: "Apple Chancery", "cursive";
+	padding-right: 45px !important;
+
 }
 
 .book-1 .bk-cover h2 span:last-child {
