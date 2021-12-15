@@ -1,6 +1,7 @@
 $(".progress div").each(function () {
     var display = $(this),
-        currentValue = parseInt(display.text()),
+        // currentValue = parseInt(display.text()),
+        currentValue = parseInt($(this).attr('data-initial-values'));
         nextValue = $(this).attr("data-values"),
         diff = nextValue - currentValue,
         step = (0 < diff ? 1 : -1);
