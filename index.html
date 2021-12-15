@@ -253,19 +253,14 @@ layout: default
             {% endif %}
             programmingSkills
           </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="grid-block">
-        <ul class="list-unstyled list-skills">
-          {% for programmingSkill in site.author.programmingSkills %}
+          <h2>Test Skills</h2>
           <li>
             {% if programmingSkill.name %}
             <span class="caption-skill">{{ programmingSkill.name }}</span>
-            {% endif %} {% if programmingSkill.percentage %}
+            {% endif %} {% if programmingSkill.percentage && programmingSkill.name == 'PHP' %}
             <div class="progress progress-striped active">
               <div
-                class="progress-bar"
+                class="progress-bar progress-bar-success"
                 style="width: {{ programmingSkill.percentage }}"
                 data-values="{{ programmingSkill.percentage }}"
               >0
