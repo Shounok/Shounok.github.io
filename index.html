@@ -7,7 +7,8 @@ layout: default
     <div class="col-md-8">
       {% if site.author.workHistory %}
       <h3 class="title with-icon">
-        <span class="glyphicon glyphicon-plane cat-title"></span>Work History
+        <!--  <span class="glyphicon glyphicon-plane cat-title"></span>Work History -->
+        <span class="fa fa-briefcase cat-title"></span>Work History
       </h3>
       <ul class="timeline">
         {% for work in site.author.workHistory %}
@@ -45,7 +46,7 @@ layout: default
       </ul>
       {% endif %} {% if site.author.educationHistory %}
       <h3 class="title with-icon">
-        <span class="fa fa-book cat-title"></span>Education History
+        <span class="fa fa-school cat-title"></span>Education History
       </h3>
       <ul class="timeline">
         {% for education in site.author.educationHistory %}
