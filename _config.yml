@@ -90,3 +90,7 @@ author:
     - skill5:
       name: Java/Android
       percentage: 60%
+
+  bookShowcase:
+    - bookName: A Brief History of Tomorrow
+    - writerName: Yuval Noah Harari
