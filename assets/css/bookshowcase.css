@@ -344,7 +344,7 @@
 .book-1 .bk-back,
 .book-1 .bk-left,
 .book-1 .bk-front:after {
-	background-color: #646363;
+	background-color: #e5e5e3;
 }
 
 .book-1 .bk-cover {
@@ -375,10 +375,10 @@
 }
 
 .book-1 .bk-left h2 span:first-child {
-	font-size: 23px !important;
+	font-size: 18px !important;
 	font-family: "Apple Chancery", "cursive";
 	padding-right: 45px !important;
-	color: #fff !important;
+	color: #51534d !important;
 
 }
 
@@ -508,7 +508,7 @@
 .book-3 .bk-back,
 .book-3 .bk-left,
 .book-3 .bk-front:after {
-	background-color: #a4c19e;
+	background-color: #aa1b19;
 }
 
 .book-3 .bk-cover {
@@ -532,7 +532,7 @@
 .book-3 .bk-left h2 span:first-child {
 	text-transform: uppercase;
 	font-weight: 400;
-	font-size: 13px;
+	font-size: 17px;
 	padding-right: 20px;
 }
 
