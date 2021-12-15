@@ -420,20 +420,20 @@
 .book-2 .bk-back,
 .book-2 .bk-left,
 .book-2 .bk-front:after {
-	background-color: #222;
+	background-color: #efeaee;
 }
 
 .book-2 .bk-cover {
 	background-image: url(../img/kundera.jpg);	
 	background-repeat: no-repeat;
 	background-position: 98% 0%;
-	background-size: 150px;
+	background-size: 140px;
 }
 
 .book-2 .bk-cover h2, 
 .book-2 .bk-left h2 {
-	color: #fff;
-	font-family: 'the_godfatherregular', Georgia, serif;
+	color: rgb(3, 3, 3);
+	font-family: 'Bradley Hand', 'cursive';
 	font-weight: 400;
 }
 
