@@ -241,10 +241,10 @@ layout: default
             {% if programmingSkill.name %}
             <span class="caption-skill">{{ programmingSkill.name }}</span>
             {% endif %} {% if programmingSkill.percentage %}
-            <div class="progress">
+            <div class="progress progress-striped active">
               <div
                 class="progress-bar"
-                style="width: {{ programmingSkill.percentage }}"
+                data-values="{{ programmingSkill.percentage }}"
               >
                 <span>{{ programmingSkill.percentage }} </span>
               </div>
