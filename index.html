@@ -12,11 +12,11 @@ layout: default
       </h3>
       <ul class="timeline">
         {% for work in site.author.workHistory %}
-        <li class="timeline-inverted">
+        <li class="timeline-inverted curl-top-right">
           {% if work.started %}
           <div class="timeline-badge info">{{ work.started }}</div>
           {% endif %}
-          <div class="timeline-panel grid-block curl-top-right">
+          <div class="timeline-panel grid-block">
             <div class="timeline-heading">
               {% if work.company %}
               <h4 class="timeline-title">{{ work.company }}</h4>
@@ -50,11 +50,11 @@ layout: default
       </h3>
       <ul class="timeline">
         {% for education in site.author.educationHistory %}
-        <li class="timeline-inverted">
+        <li class="timeline-inverted curl-top-right">
           {% if education.started %}
           <div class="timeline-badge info">{{ education.started }}</div>
           {% endif %}
-          <div class="timeline-panel grid-block curl-top-right">
+          <div class="timeline-panel grid-block">
             <div class="timeline-heading">
               {% if education.organization %}
               <h4 class="timeline-title">{{ education.organization }}</h4>
