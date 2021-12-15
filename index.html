@@ -246,11 +246,34 @@ layout: default
                 class="progress-bar"
                 style="width: {{ programmingSkill.percentage }}"
                 data-values="{{ programmingSkill.percentage }}"
-              >{{ programmingSkill.percentage }}
+              >0
                 <!-- <span>{{ programmingSkill.percentage }} </span> -->
               </div>
             </div>
             {% endif %}
+            programmingSkills
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="grid-block">
+        <ul class="list-unstyled list-skills">
+          {% for programmingSkill in site.author.programmingSkills %}
+          <li>
+            {% if programmingSkill.name %}
+            <span class="caption-skill">{{ programmingSkill.name }}</span>
+            {% endif %} {% if programmingSkill.percentage %}
+            <div class="progress progress-striped active">
+              <div
+                class="progress-bar"
+                style="width: {{ programmingSkill.percentage }}"
+                data-values="{{ programmingSkill.percentage }}"
+              >0
+                <!-- <span>{{ programmingSkill.percentage }} </span> -->
+              </div>
+            </div>
+            {% endif %}
+            programmingSkills
           </li>
           {% endfor %}
         </ul>
