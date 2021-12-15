@@ -528,7 +528,7 @@ hr {
     content:'';
     height: 0;
     width: 0;
-    top: 0;
+    top: 10px;
     right: 0;
     background: white;
     /* IE9 */
