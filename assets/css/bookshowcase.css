@@ -6,13 +6,13 @@
 
 .bk-list li {
 	position: relative;
-	width: 300px;
+	width: 90px;
 	float: left;
 	z-index: 1;
 	margin: 0px 50px 40px 0;
-	-webkit-perspective: 1800px;
-	-moz-perspective: 1800px;
-	perspective: 1800px;
+	-webkit-perspective: 750px;
+	-moz-perspective: 750px;
+	perspective: 750px;
 }
 
 .bk-list li:last-child {
@@ -424,9 +424,10 @@
 }
 
 .book-2 .bk-cover {
-	background-image: url(../images/2.png);	
+	background-image: url(../img/kundera.jpg);	
 	background-repeat: no-repeat;
 	background-position: 98% 0%;
+	background-size: 150px;
 }
 
 .book-2 .bk-cover h2, 
