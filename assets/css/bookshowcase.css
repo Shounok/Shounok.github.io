@@ -389,8 +389,7 @@
 	display: block;
 }
 
-.book-1 .bk-cover h2 span:last-child,
-.book-1 .bk-left h2 span:last-child {
+.book-1 .bk-cover h2 span:last-child {
 	font-family: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
 } 
 
