@@ -488,9 +488,9 @@
 }
 
 .book-2 .bk-left h2 {
-	font-size: 20px;
+	font-size: 17px;
 	line-height: 40px;
-	padding-right: 10px;
+	padding-right: 60px;
 	text-align: right;
 }
 
@@ -512,9 +512,10 @@
 }
 
 .book-3 .bk-cover {
-	background-image: url(../images/3.png);	
+	background-image: url(../img/nineteenEightyFour.png);	
 	background-repeat: no-repeat;
 	background-position: 100% 95%;
+	background-size: 140px;
 }
 
 .book-3 .bk-cover h2 {
