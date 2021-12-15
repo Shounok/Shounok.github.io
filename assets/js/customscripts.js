@@ -1,3 +1,4 @@
+/*
 $(".progress div").each(function () {
     var display = $(this),
         // currentValue = parseInt(display.text()),
@@ -20,3 +21,4 @@ $(".progress div").each(function () {
         }, 20 * i);
     }
 });
+*/
