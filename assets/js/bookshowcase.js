@@ -3,6 +3,7 @@ var Books = (function () {
       booksCount = $books.length;
   
     function init() {
+        console.log('It got the JS file');
       $books.each(function () {
         var $book = $(this),
           $other = $books.not($book),
