@@ -241,29 +241,67 @@ layout: default
             {% if programmingSkill.name %}
             <span class="caption-skill">{{ programmingSkill.name }}</span>
             {% endif %} 
-            {% if programmingSkill.percentage and programmingSkill.name == "PHP" %}
-            <div class="progress progress-striped active">
-              <div
-                class="progress-bar progress-bar-success"
-                style="width: {{ programmingSkill.percentage }}"
-                data-initial-values: 0
-                data-values="{{ programmingSkill.percentage }}"
-              >{{ programmingSkill.percentage }}</div>
-                <!-- <span>{{ programmingSkill.percentage }} </span> 
-              </div> -->
-            </div>
-            {% endif %}
             {% if programmingSkill.percentage %}
-            <div class="progress progress-striped active">
-              <div
-                class="progress-bar"
-                style="width: {{ programmingSkill.percentage }}"
-                data-initial-values: 0
-                data-values="{{ programmingSkill.percentage }}"
-              >{{ programmingSkill.percentage }}</div>
-                <!-- <span>{{ programmingSkill.percentage }} </span> 
-              </div> -->
-            </div>
+              {% if programmingSkill.name == "PHP" %}
+              <div class="progress progress-striped active">
+                <div
+                  class="progress-bar progress-bar-success"
+                  style="width: {{ programmingSkill.percentage }}"
+                  data-initial-values: 0
+                  data-values="{{ programmingSkill.percentage }}"
+                >{{ programmingSkill.percentage }}</div>
+                  <!-- <span>{{ programmingSkill.percentage }} </span> 
+                </div> -->
+              </div>
+              {% endif %}
+              {% if programmingSkill.name == "JavaScript" %}
+              <div class="progress progress-striped active">
+                <div
+                  class="progress-bar progress-bar-warning"
+                  style="width: {{ programmingSkill.percentage }}"
+                  data-initial-values: 0
+                  data-values="{{ programmingSkill.percentage }}"
+                >{{ programmingSkill.percentage }}</div>
+                  <!-- <span>{{ programmingSkill.percentage }} </span> 
+                </div> -->
+              </div>
+              {% endif %}
+              {% if programmingSkill.name == "Python" %}
+              <div class="progress progress-striped active">
+                <div
+                  class="progress-bar progress-bar-success"
+                  style="width: {{ programmingSkill.percentage }}"
+                  data-initial-values: 0
+                  data-values="{{ programmingSkill.percentage }}"
+                >{{ programmingSkill.percentage }}</div>
+                  <!-- <span>{{ programmingSkill.percentage }} </span> 
+                </div> -->
+              </div>
+              {% endif %}
+              {% if programmingSkill.name == "Data Science" %}
+              <div class="progress progress-striped active">
+                <div
+                  class="progress-bar progress-bar-danger"
+                  style="width: {{ programmingSkill.percentage }}"
+                  data-initial-values: 0
+                  data-values="{{ programmingSkill.percentage }}"
+                >{{ programmingSkill.percentage }}</div>
+                  <!-- <span>{{ programmingSkill.percentage }} </span> 
+                </div> -->
+              </div>
+              {% endif %}
+              {% if programmingSkill.name == "Java/Android" %}
+              <div class="progress progress-striped active">
+                <div
+                  class="progress-bar progress-bar-default"
+                  style="width: {{ programmingSkill.percentage }}"
+                  data-initial-values: 0
+                  data-values="{{ programmingSkill.percentage }}"
+                >{{ programmingSkill.percentage }}</div>
+                  <!-- <span>{{ programmingSkill.percentage }} </span> 
+                </div> -->
+              </div>
+              {% endif %}
             {% endif %}
           </li>
           {% endfor %}
