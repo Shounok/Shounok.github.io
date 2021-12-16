@@ -309,15 +309,19 @@ hr {
 }
 
 .list-skills li .progress .progress-bar-success {
-    background-color: #294a29 !important;
+    background-color: #249EBD !important;
 }
 
 .list-skills li .progress .progress-bar-green {
-    background-color: #2b9515 !important;
+    background-color: #afd5aa !important;
 }
 
 .list-skills li .progress .progress-bar-blue {
-    background-color: #249ebd !important; 6C6061
+    background-color: #cec2ff !important; 
+}
+
+.list-skills li .progress .progress-bar-danger {
+    background-color: #ba4e4e !important;
 }
 
 .list-skills li .progress .progress-bar-grey {
