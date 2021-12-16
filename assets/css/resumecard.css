@@ -299,15 +299,30 @@ hr {
 }
 
 .list-skills li .progress {
-    height: 15px;
+    height: 15px !important; 
     overflow: inherit;
 }
 
 .list-skills li .progress .progress-bar {
     font-size: 10px;
-    line-height: 15px;
+    line-height: 15px !important;
 }
 
+.list-skills li .progress .progress-bar-success {
+    background-color: #294a29 !important;
+}
+
+.list-skills li .progress .progress-bar-green {
+    background-color: #2b9515 !important;
+}
+
+.list-skills li .progress .progress-bar-blue {
+    background-color: #249ebd !important; 6C6061
+}
+
+.list-skills li .progress .progress-bar-grey {
+    background-color: #6C6061;
+}
 /* skills css */
 /*
 .list-skills li .progress {
