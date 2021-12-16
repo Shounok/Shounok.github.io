@@ -298,6 +298,16 @@ hr {
   width: 35px;
 }
 
+.list-skills li .progress {
+    height: 15px;
+    overflow: inherit;
+}
+
+.list-skills li .progress .progress-bar {
+    font-size: 10px;
+    line-height: 15px;
+}
+
 /* skills css */
 /*
 .list-skills li .progress {
