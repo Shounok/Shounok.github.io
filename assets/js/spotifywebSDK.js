@@ -1,3 +1,4 @@
+/*
 window.onSpotifyWebPlaybackSDKReady = () => {
   const token =
     "BQBtzXo5PyAdKb68F4hdRImflgRN3MQBr2gN-WdeC1lmXAqvhLecYhovt06HVYYocdvp9uLWMKzF9hBh5eZevyYpTdCeUY_x_2NiBV_qHfO8NyfcdlFWT38yriwHhp_TdHet42YJm1Db6j8n6H05btwJqKEJEwgfU8mlF3EGriaFqNlhvnuYh-o";
@@ -38,3 +39,4 @@ document.getElementById('togglePlay').onclick = function() {
   };
   
 };
+*/
